@@ -1,6 +1,8 @@
 
 ## readme
+ - template: [https://github.com/VacantThinker/firefox-addons-only-template](https://github.com/VacantThinker/firefox-addons-only-template)
  - firefox-addons-only-template
+   - background.js module
    - webpack
    - web-ext lint
    - zip file
@@ -25,7 +27,7 @@ node tmp.js
 //   'common.js', // background common function
 //   'LICENSE',
 //   'manifest.json',
-
+//   'snapcode.js' // eg: saveTextToFile()
 ```
 
 ```shell

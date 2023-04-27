@@ -1,11 +1,14 @@
-browser.browserAction.onClicked.addListener(async () => {
+console.log('background.js working', new Date());
+
+browser.browserAction.onClicked.addListener(
+  async (tab, info) => {
+
+  });
+
+browser.pageAction.onClicked.addListener(
+  async (tab, info) => {
 
 });
-
-browser.pageAction.onClicked.addListener(async (tab) => {
-
-});
-
 
 browser.runtime.onMessage.addListener(async (message) => {
   let action = message.action;
@@ -22,11 +25,11 @@ let menuIdabc = browser.contextMenus.create({
 }, null);
 
 browser.contextMenus.onClicked.addListener(async (info) => {
-    switch (info.menuItemId) {
-      case menuIdabc:
-        // await menuIdabcFn(message);
-        break;
+  switch (info.menuItemId) {
+    case menuIdabc:
+      // await menuIdabcFn(message);
+      break;
 
-    }
+  }
 
 });

@@ -1,11 +1,13 @@
 {
   "name": "firefox-addons-only-template",
-  "version": "1.0.0",
+  "version": "0.0.1.1",
   "description": "",
   "scripts": {
+    "git_push": "git add . && git commit -m '0.0.1.1' && git push --force ",
     "webpack": "webpack"
   },
-  "author": "",
+  "homepage": "https://github.com/VacantThinker/firefox-addons-only-template",
+  "author": "vacantthinker",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "latest",

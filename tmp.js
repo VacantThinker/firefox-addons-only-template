@@ -9,7 +9,9 @@ execSync('npm run webpack'); // production
 
 //*******************************************
 const {zipAlotFileOrDir} = require('./zipFile');
+// zip firefox addons
 zipAlotFileOrDir('dist', null);
+// zip firefox addons source
 zipAlotFileOrDir(
   null,
   {append: '--sourcecode'},

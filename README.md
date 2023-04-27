@@ -24,7 +24,7 @@ node tmp.js
 //   'js', // content-script
 //   'background.html', //
 //   'background.js', //
-//   'common.js', // background common function
+//   '_common.js', // background common function
 //   'LICENSE',
 //   'manifest.json',
 //   'snapcode.js' // eg: saveTextToFile()

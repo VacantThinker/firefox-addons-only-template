@@ -1,0 +1,45 @@
+{
+  "manifest_version": 2,
+  "name": "firefox-addons-only-template",
+  "description": "firefox-addons-only-template",
+  "version": "0.0.0.1",
+  "default_locale": "en",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "firefox-addons-only-template@example.com"
+    }
+  },
+  "icons": {
+    "48": "icons/48.png"
+  },
+  "browser_action": {
+    "default_icon": "icons/48.png",
+    "default_title": "firefox-addons-only-template"
+  },
+  "page_action": {
+    "default_icon": "icons/48.png",
+    "default_title": "firefox-addons-only-template",
+    "show_matches": [
+      "<all_urls>"
+    ]
+  },
+  "background": {
+    "page": "background.html"
+  },
+  "permissions": [
+    "<all_urls>",
+    "tabs",
+    "contextMenus",
+    "notifications"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "js/abc.js"
+      ]
+    }
+  ]
+}

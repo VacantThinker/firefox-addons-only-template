@@ -1,0 +1,1 @@
+browser.browserAction.onClicked.addListener((async()=>{})),browser.pageAction.onClicked.addListener((async e=>{})),browser.runtime.onMessage.addListener((async e=>{e.action})),browser.contextMenus.create({id:"menuIdabc",title:"menuIdabc title",contexts:["link","video","page","selection"]},null),browser.contextMenus.onClicked.addListener((async e=>{e.menuItemId}));

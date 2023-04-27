@@ -1,0 +1,19 @@
+{
+  "name": "firefox-addons-only-template",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "webpack": "webpack"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/firefox-webext-browser": "latest",
+    "archiver": "^5.3.1",
+    "copy-webpack-plugin": "^11.0.0",
+    "file-loader": "^6.2.0",
+    "webpack": "latest",
+    "webpack-cli": "latest"
+  }
+}

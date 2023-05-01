@@ -1,12 +1,10 @@
-
-
-console.log('abc.js')
+console.log('abc.js');
 
 async function sendMessageToBackground(message) {
   await browser.runtime.sendMessage({
     action: 'act12',
-    ...message
-  })
+    ...message,
+  });
 }
 
 browser.runtime.onMessage.addListener(async (message) => {
@@ -15,6 +13,6 @@ browser.runtime.onMessage.addListener(async (message) => {
 
   // message
   // your code is here
-  await sendMessageToBackground({xx: 'ascdefg'})
+  await sendMessageToBackground({xx: 'ascdefg'});
 
-})
+});

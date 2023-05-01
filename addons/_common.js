@@ -75,43 +75,42 @@ async function sendMessageWithTabNew(createProp, message) {
  * default: 'all'
  *
  * {
- *     tabExistsTypeAll: 'all',
- *     tabExistsTypeFirst: 'first',
+ *     all: 'all',
+ *     first: 'first',
  *   }
- * @return {{tabExistsTypeFirst: string, tabExistsTypeAll: string}}
+ * @return {{all: string, first: string}}
  */
 function tabExistsType() {
   return {
-    tabExistsTypeAll: 'all',
-    tabExistsTypeFirst: 'first',
-  }
+    all: 'all',
+    first: 'first',
+  };
 }
 
 /**
  *
  * @param queryQueryInfo{_QueryQueryInfo}
  * @param message{Object}
- * @param type default: 'all' <= tabExistsType().tabExistsTypeAll
+ * @param type default: 'all' <= tabExistsType().all
  * @return {Promise<void>}
  */
 async function sendMessageWithTabExists(
   queryQueryInfo,
   message,
-  type = tabExistsType().tabExistsTypeAll
-  ) {
+  type = tabExistsType().all,
+) {
 
-  let tabs = []
+  let tabs = [];
   switch (type) {
-    case tabExistsType().tabExistsTypeAll:
-      tabs.push(... (await brTabQueryAll(queryQueryInfo)))
-      break
-    case tabExistsType().tabExistsTypeFirst:
-      tabs.push(await brTabQueryFirst(queryQueryInfo))
-      break
+    case tabExistsType().all:
+      tabs.push(...(await brTabQueryAll(queryQueryInfo)));
+      break;
+    case tabExistsType().first:
+      tabs.push(await brTabQueryFirst(queryQueryInfo));
+      break;
   }
   for (const tab of tabs) {
-    let tabId = tab.id
-    await brTabMessage(tabId, message)
+    await brTabMessage(tab.id, message);
   }
 }
 
@@ -139,7 +138,6 @@ export {
   sendMessageWithTabNew,
   sendMessageWithTabExists,
   tabExistsType,
-
 
   // *******************************
   // browser.runtime.onMessage.addListener

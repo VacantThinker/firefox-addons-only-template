@@ -9,6 +9,14 @@
       "id": "firefox-addons-only-template@example.com"
     }
   },
+  "permissions": [
+    "<all_urls>",
+    "tabs",
+    "contextMenus",
+    "notifications",
+    "storage",
+    "unlimitedStorage"
+  ],
   "icons": {
     "48": "icons/48.png"
   },
@@ -26,12 +34,6 @@
   "background": {
     "page": "background.html"
   },
-  "permissions": [
-    "<all_urls>",
-    "tabs",
-    "contextMenus",
-    "notifications"
-  ],
   "content_scripts": [
     {
       "matches": [

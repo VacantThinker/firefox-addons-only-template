@@ -1,1 +1,0 @@
-async function sendMessageToBackground(s){await browser.runtime.sendMessage({action:"act12",...s})}console.log("abc.js"),browser.runtime.onMessage.addListener((async s=>{console.log("meslog abc.js message=\n",s),await sendMessageToBackground({xx:"ascdefg"})}));

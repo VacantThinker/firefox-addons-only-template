@@ -10,7 +10,7 @@
 
 ## first
 ```shell
-yarn install
+npm install
 ```
 
 ## second
@@ -24,10 +24,10 @@ node tmp.js
 //   'js', // content-script
 //   'background.html', //
 //   'background.js', //
-//   '_common.js', // background common function
+//   '_common.js', // background basic function
 //   'LICENSE',
 //   'manifest.json',
-//   'snapcode.js' // eg: saveTextToFile()
+//   '_snapcode.js' // eg: saveTextToFile()
 ```
 
 ```shell

@@ -32,6 +32,9 @@ const patterns = geneFromTo(
     '_locales', //
     'icons', // icon
     'js', // content-scripts
+    'option', // options_ui
+
+    '_common.js', // basic function
     'background.html', //
     'manifest.json', //
   ],

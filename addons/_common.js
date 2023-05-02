@@ -125,6 +125,48 @@ function act12Fn(message) {
 // *******************************
 // browser.contextMenus.onClicked.addListener
 
+function listValue() {
+  return {
+    image: 'image',
+  };
+}
+
+function listProp() {
+  return {
+    mediaType: 'mediaType',
+    srcUrl: 'srcUrl',
+
+    linkText: 'linkText',
+    linkUrl: 'linkUrl',
+  };
+}
+
+/**
+ *
+ * @param info{browser.contextMenus.OnClickData}
+ * @return {String}
+ */
+function getLinkOrSrc(info) {
+  // info.linkUrl || info.srcUrl
+  let res = null;
+  if (info.hasOwnProperty(listProp().mediaType) &&
+    info.hasOwnProperty(listProp().srcUrl)) {
+    res = info.srcUrl
+  }
+  else if (info.hasOwnProperty(listProp().linkText) &&
+    info.hasOwnProperty(listProp().linkUrl)
+  ) {
+    res = info.linkUrl
+  }
+  return res
+}
+
+function getURLList() {
+  return {
+    abc: 'https://abcdefg.com/',
+  };
+}
+
 function menuIdabcFn(message) {
   // todo do something
 }
@@ -145,6 +187,7 @@ export {
 
   // *******************************
   // browser.contextMenus.onClicked.addListener
+  getLinkOrSrc,
   menuIdabcFn,
 
 };

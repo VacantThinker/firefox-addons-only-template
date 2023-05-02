@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "firefox-addons-only-template",
   "description": "firefox-addons-only-template",
-  "version": "0.0.0.1",
+  "version": "0.0.1",
   "default_locale": "en",
   "browser_specific_settings": {
     "gecko": {

@@ -8,11 +8,9 @@
   "homepage": "https://github.com/VacantThinker/firefox-addons-only-template",
   "author": "vacantthinker",
   "license": "MIT",
-  "dependencies": {
-    "dexie": "^3.2.3"
-  },
   "devDependencies": {
-    "@vacantthinker/util_dexie_js": "^0.0.1",
+    "dexie": "^3.2.3",
+    "@vacantthinker/util_dexie_js": "latest",
     "@types/firefox-webext-browser": "latest",
     "@types/node": "latest",
     "archiver": "^5.3.1",

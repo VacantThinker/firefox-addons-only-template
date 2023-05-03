@@ -3,8 +3,6 @@
 
 # npm or yarn
 node_modules
-package-lock.json
-yarn.lock
 
 # output
 dist

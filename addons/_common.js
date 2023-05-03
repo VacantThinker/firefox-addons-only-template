@@ -1,4 +1,28 @@
 /**
+ * await browser.runtime.sendMessage(message)
+ * @param message
+ * @return {Promise<void>}
+ */
+async function brRuntMessage(message) {
+  await browser.runtime.sendMessage(message);
+}
+
+/**
+ *
+ * @param message{{tabId, func: Function, any: any}}
+ * @return {Promise<void>}
+ */
+async function brScriptingExec(message) {
+  let {tabId, func} = message;
+  // browser.contentScripts.register() // not working!!!
+  await browser.scripting.executeScript({
+    target: {tabId},
+    args: [message],
+    func: func,
+  });
+}
+
+/**
  * await browser.tabs.sendMessage(tabId, message);
  * @param tabId
  * @param message
@@ -151,14 +175,14 @@ function getLinkOrSrc(info) {
   let res = null;
   if (info.hasOwnProperty(listProp().mediaType) &&
     info.hasOwnProperty(listProp().srcUrl)) {
-    res = info.srcUrl
+    res = info.srcUrl;
   }
   else if (info.hasOwnProperty(listProp().linkText) &&
     info.hasOwnProperty(listProp().linkUrl)
   ) {
-    res = info.linkUrl
+    res = info.linkUrl;
   }
-  return res
+  return res;
 }
 
 function getURLList() {

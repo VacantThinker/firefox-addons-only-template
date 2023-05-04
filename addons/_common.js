@@ -14,7 +14,6 @@ async function brRuntMessage(message) {
  */
 async function brScriptingExec(message) {
   let {tabId, func} = message;
-  // browser.contentScripts.register() // not working!!!
   await browser.scripting.executeScript({
     target: {tabId},
     args: [message],
@@ -196,6 +195,7 @@ function menuIdabcFn(message) {
 }
 
 export {
+  brScriptingExec,
   brTabMessage,
   brTabCreate,
   brTabQueryAll,

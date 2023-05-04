@@ -13,10 +13,8 @@ const path = require('path');
 const fs = require('fs');
 
 const {execSync} = require('node:child_process');
-// const {geneDexieAll} = require('./util/index.dexie');
-const {geneDexieAll} = require('@vacantthinker/util_dexie_js');
 const {zipAlotFileOrDir} = require('./zipFile');
-
+const {geneDexieAll} = require('@vacantthinker/util_dexie_js');
 let pathDirEntity = path.join(__dirname, 'addons', 'entity');
 geneDexieAll(
   null,
@@ -34,7 +32,7 @@ zipAlotFileOrDir('dist', null);
 zipAlotFileOrDir(
   null,
   {append: '--sourcecode'},
-  ['.zip'],
+  ['.zip', 'package-lock.json', 'yarn.lock'],
   ['dist', 'trash'],
 );
 

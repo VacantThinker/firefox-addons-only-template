@@ -1,3 +1,32 @@
+const path = require('path');
+const fs = require('fs');
+const CopyPlugin = require('copy-webpack-plugin');
+
+function geneEntry(arr, pathBase) {
+  let reduce = arr.reduce((result, item)=>{
+    let {type, name} = item
+
+    if (String(type).includes('file')) {
+      let filename = `${name}.js`;
+      result[filename] = path.join(pathBase, filename)
+    }
+    if (String(type).includes('dir')){
+      let strings = fs.readdirSync(path.join(pathBase, name));
+      strings
+        .filter(value => value.endsWith('.js'))
+        .forEach((filename)=>{
+          let key_ = `${name}/${filename}`
+          result[key_] = path.join(pathBase,name,filename)
+        })
+    }
+
+    return result
+  },{});
+
+  console.log(`meslog reduce=\n`, reduce);
+
+  return reduce
+}
 /**
  *
  * @param arr{Array} src file/dir arr
@@ -5,37 +34,35 @@
  * @param dest{String} dest path
  * @return Array
  */
-function geneFromTo(arr, src, dest) {
-  const path = require('path');
+function geneCopyPatterns(arr, src, dest) {
   return arr.reduce((result, value) => {
-    let a = path.join(__dirname, src, value);
-    let b = path.join(__dirname, dest, value);
+    let a = path.join(src, value);
+    let b = path.join(dest, value);
     let obj = {from: a, to: b};
     result.push(obj);
     return result;
   }, Array.from([]));
 }
 
-const fs = require('fs');
-const path = require('path');
+//****************************************************************************
 
-const CopyPlugin = require('copy-webpack-plugin');
+let pathDirSrc = path.join(__dirname, 'addons');
+let pathDirDest = path.join(__dirname, 'dist');
 
-let pathDirSrc = 'addons';
-let pathDirDest = 'dist';
+let entry = geneEntry([
+  {type: 'file', name: 'background'},
+  {type: 'dir', name: 'option'},
+  {type: 'dir', name: 'js'},
+], pathDirSrc)
 
-let entry = [
-  path.join(__dirname, pathDirSrc, 'background.js'),
-];
-const patterns = geneFromTo(
+const patterns = geneCopyPatterns(
   [
     '_locales', //
     'icons', // icon
-    'js', // content-scripts
-    'option', // options_ui
+    'option/options.html', // options_ui
 
-    // '_common.js', // basic function
     'background.html', //
+    'LICENSE', //
     'manifest.json', //
   ],
   pathDirSrc,
@@ -51,8 +78,8 @@ module.exports = {
   mode: 'production',
   entry: entry,
   output: {
-    filename: 'background.js',
-    path: path.join(__dirname, pathDirDest),
+    path: pathDirDest,
+    filename: '[name]',
   },
   experiments: {
     topLevelAwait: true,

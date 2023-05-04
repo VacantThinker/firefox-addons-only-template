@@ -20,14 +20,18 @@ node tmp.js
 
 ## addons
 ```text
+// _locales // 
+// entity // dexie entity
 //   'icons', // icon
 //   'js', // content-script
+//  option // option ui
+//   '_common.js', // background basic function
+// _introduce.html // introduce the addons
+//   '_snapcode.js' // eg: saveTextToFile()
 //   'background.html', //
 //   'background.js', //
-//   '_common.js', // background basic function
 //   'LICENSE',
 //   'manifest.json',
-//   '_snapcode.js' // eg: saveTextToFile()
 ```
 
 ```shell

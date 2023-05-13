@@ -1,8 +1,9 @@
 # intellij idea
 .idea
 
-# npm or yarn
+# npm && yarn
 node_modules
+package-lock.json
 
 # output
 dist

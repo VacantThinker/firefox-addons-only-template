@@ -21,7 +21,9 @@ export async function $brTabCreateAndFocus(
    */
   let tab = await browser.tabs.create({url, active});
   let tabId = tab.id;
-  await $brUpdateFocus(tabId);
+  if (focused) {
+    await $brUpdateFocus(tabId);
+  }
 
   handlePrintConsole({
     from: 'tab create',

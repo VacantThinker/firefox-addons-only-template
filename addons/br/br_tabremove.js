@@ -10,5 +10,6 @@ export async function $brTabRemove(tabIds) {
       await browser.tabs.remove(tabIds);
     }
   } catch (e) {
+
   }
 }

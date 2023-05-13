@@ -1,32 +1,31 @@
-const path = require('path');
-const fs = require('fs');
-const CopyPlugin = require('copy-webpack-plugin');
-
 function geneEntry(arr, pathBase) {
-  let reduce = arr.reduce((result, item)=>{
-    let {type, name} = item
+  const path = require('path');
+  const fs = require('fs');
+  let reduce = arr.reduce((result, item) => {
+    let {type, name} = item;
 
     if (String(type).includes('file')) {
       let filename = `${name}.js`;
-      result[filename] = path.join(pathBase, filename)
+      result[filename] = path.join(pathBase, filename);
     }
-    if (String(type).includes('dir')){
+    if (String(type).includes('dir')) {
       let strings = fs.readdirSync(path.join(pathBase, name));
       strings
         .filter(value => value.endsWith('.js'))
-        .forEach((filename)=>{
-          let key_ = `${name}/${filename}`
-          result[key_] = path.join(pathBase,name,filename)
-        })
+        .forEach((filename) => {
+          let key_ = `${name}/${filename}`;
+          result[key_] = path.join(pathBase, name, filename);
+        });
     }
 
-    return result
-  },{});
+    return result;
+  }, {});
 
   console.log(`meslog reduce=\n`, reduce);
 
-  return reduce
+  return reduce;
 }
+
 /**
  *
  * @param arr{Array} src file/dir arr
@@ -35,6 +34,8 @@ function geneEntry(arr, pathBase) {
  * @return Array
  */
 function geneCopyPatterns(arr, src, dest) {
+  const path = require('path');
+  const fs = require('fs');
   return arr.reduce((result, value) => {
     let a = path.join(src, value);
     let b = path.join(dest, value);
@@ -44,16 +45,21 @@ function geneCopyPatterns(arr, src, dest) {
   }, Array.from([]));
 }
 
-//****************************************************************************
+//=============================================================================
+
+const path = require('path');
+const fs = require('fs');
+const CopyPlugin = require('copy-webpack-plugin');
 
 let pathDirSrc = path.join(__dirname, 'addons');
 let pathDirDest = path.join(__dirname, 'dist');
 
-let entry = geneEntry([
+let arr = [
   {type: 'file', name: 'background'},
   {type: 'dir', name: 'option'},
   {type: 'dir', name: 'js'},
-], pathDirSrc)
+];
+let entry = geneEntry(arr, pathDirSrc);
 
 const patterns = geneCopyPatterns(
   [
@@ -74,8 +80,9 @@ const patterns = geneCopyPatterns(
 //************************************************************************
 //************************************************************************
 
+// entry only support js file
 module.exports = {
-  mode: 'production',
+  mode: 'production', // production
   entry: entry,
   output: {
     path: pathDirDest,
@@ -85,9 +92,7 @@ module.exports = {
     topLevelAwait: true,
   },
   plugins: [
-    new CopyPlugin({
-      patterns: patterns,
-    }),
+    new CopyPlugin({patterns: patterns}),
   ],
 };
 

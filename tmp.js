@@ -15,16 +15,16 @@ geneDexieAll(
   pathDirGeneFileAddon,
 );
 
-// let pathDirGeneFileVue = path.join(__dirname, 'src');
-// geneDexieAll(
-//   dbname,
-//   dbversion,
-//   pathDirEntity,
-//   pathDirGeneFileVue,
-// );
+let pathDirGeneFileVue = path.join(__dirname, 'src');
+geneDexieAll(
+  dbname,
+  dbversion,
+  pathDirEntity,
+  pathDirGeneFileVue,
+);
 
 const {execSync} = require('node:child_process');
-// execSync('npm run build');
+execSync('npm run build');
 execSync('npm run webpack'); // production
 
 //*******************************************

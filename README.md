@@ -19,23 +19,44 @@ node tmp.js
 ```
 
 ## addons
-```text
-// _locales // 
-// entity // dexie entity
-//   'icons', // icon
-//   'js', // content-script
-//  option // option ui
-//   '_common.js', // background basic function
-// _introduce.html // introduce the addons
-//   '_snapcode.js' // eg: saveTextToFile()
-//   'background.html', //
-//   'background.js', //
-//   'LICENSE',
-//   'manifest.json',
-```
+ - _locales
+   - addon locales
+ - br 
+   - browser base function
+ - dborm
+   - database orm
+ - entity
+   - database entity
+ - global
+   - global variable
+ - icons
+   - addon icon
+ - js
+   - addon content js
+ - option
+   - addon option ui
+ - router
+   - addon browser.runtime.onMessage message.act
+ - service
+   - addon message.act common function
+ - background.html
+   - addon background.html
+ - background.js
+   - addon background.html script background.js
+ - LICENSE
+ - manifest.json
+   - addon manifest.json
+
+
+---------
 
 ```shell
 cd dist && 
 web-ext lint
 
+```
+
+### create vue project
+```shell
+npm init vue@latest
 ```

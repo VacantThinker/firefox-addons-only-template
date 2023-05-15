@@ -34,7 +34,7 @@ zipAlotFileOrDir(
   null,
   {append: '--sourcecode'},
   ['.zip', 'package-lock.json', 'yarn.lock'],
-  ['dist', 'trash'],
+  ['dist', 'trash', 'screenshot'],
 );
 
 console.log('new Date()=> ', new Date());

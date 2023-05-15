@@ -1,7 +1,7 @@
 
 ```shell
 git add . && 
-git commit -m "add vue" && 
+git commit -m "add dir/screenshot" && 
 git push 
 
 ```

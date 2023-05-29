@@ -1,26 +1,23 @@
 'use strict';
-
 const {geneDexieAll} = require('@vacantthinker/util_dexie_js');
+
 const path = require('path');
 const fs = require('fs');
 
-let pathDirEntity = path.join(__dirname, 'addons', 'entity');
-let dbname = 'firefox-addons-only-template';
-let dbversion = 1;
-let pathDirGeneFileAddon = path.join(__dirname, 'addons', 'dborm');
+let cwd = process.cwd();
+let basename = path.basename(cwd);
+
+
+
+let pathDirEntity = path.join(__dirname, 'entity');
+let dbname = basename
+let dbversion = 1
+let pathDirGeneFileAddon = path.join(__dirname, 'src', 'dborm');
 geneDexieAll(
   dbname,
   dbversion,
   pathDirEntity,
   pathDirGeneFileAddon,
-);
-
-let pathDirGeneFileVue = path.join(__dirname, 'src');
-geneDexieAll(
-  dbname,
-  dbversion,
-  pathDirEntity,
-  pathDirGeneFileVue,
 );
 
 const {execSync} = require('node:child_process');
@@ -37,12 +34,5 @@ zipAlotFileOrDir(
   ['dist', 'trash', 'screenshot'],
 );
 
-console.log('new Date()=> ', new Date());
+console.log('tmp.js new Date()=> ', new Date());
 
-function cpSync(a, b) {
-  fs.cpSync(
-    path.join(__dirname, a),
-    path.join(__dirname, b),
-    {recursive: true, force: true},
-  );
-}

@@ -5,7 +5,7 @@
  */
 import {$brTabRemove} from './br_tabremove';
 import {$brTabCreateAndFocus} from './br_tabcreateandfocus';
-import {$brUpdateFocus} from './br_tabupdatefocus';
+import {$brUpdateFocus} from './br_tabupdate';
 
 /**
  *

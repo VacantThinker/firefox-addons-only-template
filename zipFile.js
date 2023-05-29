@@ -40,7 +40,7 @@ function zipAlotFileOrDir(
       ? zipFileName
       : basename.concat(zipFileName.append);
 
-//Step 2 - create a file to stream archive data to
+//Step 2 - create cwd file to stream archive data to
   const output = fs.createWriteStream(__dirname + `/${zipFileName}.zip`);
   const archive = archiver('zip', {
     zlib: {level: 9},

@@ -12,15 +12,17 @@
   "author": "vacantthinker",
   "license": "MIT",
   "dependencies": {
-    "vue": "^3.3.2"
+    "vue": "latest"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.2.3",
-    "vite": "^4.3.5",
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.3",
     "dexie": "^3.2.3",
     "@vacantthinker/util_dexie_js": "latest",
     "@types/firefox-webext-browser": "latest",
     "@types/node": "latest",
+    "@vitejs/plugin-vue": "latest",
+    "vite": "latest",
     "archiver": "^5.3.1",
     "copy-webpack-plugin": "^11.0.0",
     "file-loader": "^6.2.0",

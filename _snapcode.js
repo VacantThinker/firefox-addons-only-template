@@ -2,7 +2,7 @@
 //*****************************************************
 
 /**
- * save text to file use element a download and href
+ * save text to file use element cwd download and href
  * @param text txt of the file
  * @param filename file name
  */

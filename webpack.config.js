@@ -51,8 +51,8 @@ const path = require('path');
 const fs = require('fs');
 const CopyPlugin = require('copy-webpack-plugin');
 
-let pathDirSrc = path.join(__dirname, 'addons');
-let pathDirDest = path.join(__dirname, 'dist');
+let pathDirSrc = path.join(__dirname, 'src','addons');
+let pathDirDist = path.join(__dirname, 'dist');
 
 let arr = [
   {type: 'file', name: 'background'},
@@ -72,7 +72,7 @@ const patterns = geneCopyPatterns(
     'manifest.json', //
   ],
   pathDirSrc,
-  pathDirDest,
+  pathDirDist,
 );
 
 //************************************************************************
@@ -85,7 +85,7 @@ module.exports = {
   mode: 'production', // production
   entry: entry,
   output: {
-    path: pathDirDest,
+    path: pathDirDist,
     filename: '[name]',
   },
   experiments: {

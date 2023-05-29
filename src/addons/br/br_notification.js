@@ -1,15 +1,16 @@
 /**
  *
  * @param message{ {
- *          title:String,
- *          text:String,
- *          timeout?:number
- *          }}
+ *            title:String,
+ *            text:String,
+ *            timeout?:number
+ *            }}
  * @returns {Promise<void>}
  */
 export async function $brNotification(message) {
   let {title, text} = message;
-  let textDefault = '';
+  let titleDefault = 'youtube playlist download queue', textDefault = '';
+  title = title ? title : titleDefault;
   text = text ? text : textDefault;
 
   let notificationId = 'cake-notification';
@@ -17,7 +18,7 @@ export async function $brNotification(message) {
 
   let timeout = 3;
   timeout = message.hasOwnProperty('timeout')
-    ? message.timeout
+    ? parseInt(String(message.timeout))
     : timeout;
 
   await browser.notifications.create(notificationId, {

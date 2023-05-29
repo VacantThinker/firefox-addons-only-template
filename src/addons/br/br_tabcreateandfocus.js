@@ -1,16 +1,17 @@
-import {handlePrintConsole} from '../router/actConsole';
-import {$brUpdateFocus} from './br_tabupdatefocus';
+import {handlePrintConsole} from '../router/router.console/actConsole';
+import {$brUpdateActiveFocus} from './br_tabupdate';
 
 /**
  * return tabId
  * @param url{string}
  * @param active{boolean}
- * @param focused
+ * @param focused{boolean}
  * @return {Promise<number>}
  */
 export async function $brTabCreateAndFocus(
   url,
   // active = false,
+  // focused = false,
   active = true,
   focused = true,
 ) {
@@ -22,7 +23,7 @@ export async function $brTabCreateAndFocus(
   let tab = await browser.tabs.create({url, active});
   let tabId = tab.id;
   if (focused) {
-    await $brUpdateFocus(tabId);
+    await $brUpdateActiveFocus(tabId);
   }
 
   handlePrintConsole({
